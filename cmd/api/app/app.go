@@ -30,7 +30,8 @@ func Run() {
 
 	//Log
 	log := appLogger.NewLogger("./logs/app.log")
-	connectionString := fmt.Sprintf("user id=%s;password=%s;port=%s;database=%s", "sa", "@dmin", "1433", "SpatialDB")
+	//connectionString := fmt.Sprintf("user id=%s;password=%s;port=%s;database=%s", "SA", "@reallyStrongPwd123", "1433", "SQLDB")
+	connectionString := fmt.Sprintf("sqlserver://%s:%s@%s:%s?database=%s", "SA", "@reallyStrongPwd123", "172.17.0.2", "1433", "SQLDB")
 	db, err := sql.Open("mssql", connectionString)
 	if err != nil {
 		panic(err.Error())
